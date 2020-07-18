@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "env-cmd -e development nodemon server.js",
-    "test": "env-cmd -e test jest --watchAll"
+    "test":"jest --watchAll",
+    "test-dev": "env-cmd -e test jest --watchAll"
   },
   "keywords": [],
   "author": "",
