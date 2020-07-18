@@ -5,11 +5,13 @@ const mongoose = require("mongoose");
 const Insult = require("../models/insult");
 
 beforeEach(async () => {
+    jest.setTimeout(10000);
     await Insult.deleteMany({});
 })
 
-afterAll(() => {
+afterAll((done) => {
     mongoose.disconnect();
+    done();
 })
 
 describe("GET /insult",() => {
