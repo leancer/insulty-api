@@ -9,7 +9,8 @@ beforeEach(async () => {
     await Insult.deleteMany({});
 })
 
-afterAll((done) => {
+afterAll(async (done) => {
+    await Insult.deleteMany({});
     mongoose.disconnect();
     done();
 })

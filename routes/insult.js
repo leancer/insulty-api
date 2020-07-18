@@ -7,9 +7,9 @@ const { body, validationResult } = require("express-validator");
 router.get("/",async (req,res) => {
     
     try{
-        const insults = await Insult.find();
-        if(insults.length > 0){
-            res.json({status:"success",data:insults});
+        const insult = await Insult.random('hindi');
+        if(insult){
+            res.json({status:"success",data:insult});
         }else{
             res.json({status:"error",err:"no Insult Found"})
         }

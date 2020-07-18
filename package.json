@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "env-cmd -e development nodemon server.js",
-    "test":"jest",
+    "test": "jest",
     "test-dev": "env-cmd -e test jest --watchAll"
   },
   "keywords": [],
