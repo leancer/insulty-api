@@ -1,0 +1,27 @@
+{
+  "name": "insulty-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "env-cmd -e development nodemon server.js",
+    "test": "env-cmd -e test jest --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.0",
+    "mongoose": "^5.9.24"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0",
+    "supertest": "^4.0.2"
+  }
+}
