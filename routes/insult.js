@@ -20,22 +20,34 @@ router.get("/",async (req,res) => {
     
 })
 
-router.post("/add",[
-    body("insult").isString().not().isEmpty(),
-    body("lang").exists()
-], async (req,res) => {
-    const errors = validationResult(req); 
+router.get("/:lang",async (req,res) => {
     
-    if(!errors.isEmpty()){
-        return res.status(400).json({status:"error",errors:errors.array()});
-    }
-    const body = req.body;
-
+    let { lang } = req.params;
     try{
+        const insult = await Insult.random(lang);
+        if(insult){
+            res.json({status:"success",data:insult});
+        }else{
+            res.json({status:"error",err:"no Insult Found"})
+        }
+        
+    }catch(err){
+        res.json({status:"error",err:err});
+    }
+    
+})
 
-        const insult = new Insult(body);
+router.post("/add", async (req,res) => {
+    const body = req.body;
+    try{
+        let insult;
+        if(Array.isArray(body)){
 
-        await insult.save();
+            insult = await Insult.insertMany(body);
+        }else{
+             insult = new Insult(body);
+            await insult.save();
+        }
 
         res.json({status:"success",data:insult});
 

@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start":"node server.js",
     "dev": "env-cmd -e development nodemon server.js",
     "test": "jest",
     "test-dev": "env-cmd -e test jest --watchAll"
